@@ -1,0 +1,12 @@
+# docker compose up -d --build
+
+name: shortlisted-www
+
+services:
+  web:
+    build: .
+    image: shortlisted-www
+    container_name: shortlisted-www
+    ports:
+      - '127.0.0.1:8082:80'
+    restart: unless-stopped

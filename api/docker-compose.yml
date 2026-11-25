@@ -1,0 +1,15 @@
+name: shortlisted-api
+
+services:
+  api:
+    build: .
+    image: shortlisted-api
+    container_name: shortlisted-api
+    volumes:
+      - ./src:/app/src:ro
+    env_file: ./src/.env
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    ports:
+      - '127.0.0.1:3001:3001'
+    restart: unless-stopped
